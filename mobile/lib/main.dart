@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'presentation/screens/map_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Bathtub Models',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Bathtub Models')),
-        body: const Center(child: Text('Hello')),
-      ),
+      home: MapScreen(),
     );
   }
 }
