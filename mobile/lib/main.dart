@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart';
 import 'presentation/screens/map_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key}) {
+    _determinePosition()
+        .then((pos) {
+        });
+  }
 
 
   /// Determine the current position of the device.
@@ -53,16 +58,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var currentPosition = _determinePosition();
-    currentPosition.then((pos) => {
-      print(pos)
-    }).onError((err, stack) => {
-      print(err)
+    var ms = MapScreen();
+    _determinePosition().then((pos) {
+      print("moving!");
+      ms.mc.move(LatLng(pos.latitude, pos.longitude), 13);
     });
 
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Bathtub Models',
-      home: MapScreen(),
+      home: ms,
     );
   }
 }
