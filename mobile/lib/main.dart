@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'presentation/screens/map_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,12 +60,9 @@ class MyApp extends StatelessWidget {
       print(err)
     });
 
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Bathtub Models',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Bathtub Models')),
-        body: const Center(child: Text('Hello')),
-      ),
+      home: MapScreen(),
     );
   }
 }
