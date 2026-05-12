@@ -12,6 +12,8 @@ dependencies:
   flutter_riverpod: ^2.5.1
   flutter_map: ^7.0.2
   latlong2: ^0.9.1
+  geolocator:
+    path: ../flutter-geolocator/geolocator
 
 dev_dependencies:
   flutter_test:

@@ -3,7 +3,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
 class MapScreen extends StatelessWidget {
-  const MapScreen({super.key});
+  MapController mc = MapController();
+  MapScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +12,10 @@ class MapScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Map')),
       body: FlutterMap(
         options: const MapOptions(
-          initialCenter: LatLng(51.5, -0.09),
+          initialCenter: LatLng(0, 0),
           initialZoom: 13,
         ),
+        mapController: mc,
         children: [
           TileLayer(
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
